@@ -1,0 +1,24 @@
+name: text
+
+on: push
+jobs: 
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create file
+        run: echo -e ‘This will be the text in the file \n this is the new line’ >> file.txt 
+
+  second:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo file
+        run: cat file.txt
+
+
+   list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: List All Files
+        run: ls -al
