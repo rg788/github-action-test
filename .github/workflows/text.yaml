@@ -6,11 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create file
-        run: echo -e ‘This will be the text in the file \n this is the new line’ >> file.txt 
+        run: echo -e ‘This will be the text in the file’ >> file.txt 
 
-  second:
-    runs-on: ubuntu-latest
-    steps:
       - name: echo file
         run: cat file.txt
 
