@@ -3,6 +3,7 @@ name: text
 on: push
 jobs: 
   first:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
@@ -16,6 +17,7 @@ jobs:
         path: path/to/artifact/world.txt
   
   second:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
