@@ -3,14 +3,25 @@ name: text
 on: push
 jobs: 
   first:
-    runs-on: ubuntu-latest
     steps:
-      - name: create file
-        run: echo -e ‘This will be the text in the file’ >> file.txt 
+    - uses: actions/checkout@v2
 
-      - name: echo file
-        run: cat file.txt
+    - run: mkdir -p path/to/artifact
 
+    - run: echo hello > path/to/artifact/world.txt
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: artifact-1
+        path: path/to/artifact/world.txt
+  
+  second:
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/download-artifact@v2
+      with:
+        name: artifact-1
 
   list:
     runs-on: ubuntu-latest
